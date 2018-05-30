@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>collapse</title>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"> -->
+	<style type="text/css">
+
+	*{margin: 0px;
+		padding: 0px;}
+	body{
+		overflow: hidden;
+	}
+		.sidebar, .mk-toggle {
+
+    transition:all .5s ease-in-out;
+    -webkit-transition:all .5s ease-in-out;
+}
+
+.sidebar {
+       background:#e8e8e8;
+    width: 300px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+        z-index: 99999;
+}
+
+.mk-toggle {
+       position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    background: #e8e8e8;
+}
+
+.sidebar-collapsed {
+     /*transform:translateX(calc(-100% - 300px));   */
+     transform:translateX(calc(100% - 53px)); 
+    -webkit-transform:translateX(calc(100% - 53px));
+    
+}
+
+.sidebar-collapsed .mk-toggle {
+    /*left: -5px;*/
+
+     transform:translateX(calc(-100% + 53px));   
+        -webkit-transform: translateX(calc(-100% + 53px));  
+}
+ul{
+	padding: 0px;
+	list-style-type: none;
+}
+li{    border-left: 3px rgba(0, 0, 0, 0) solid}
+li a, .arrow{
+        padding: 10px 12px;
+    display: block;
+}
+li.active{
+    border-left: 3px #551a8b solid;
+    background: #ffffff;
+}
+.mk-content{
+width: calc(100% - 80px);
+float: right;
+padding: 10px 15px;
+}
+
+.sidebar.sidebar-collapsed .arrow img{
+    transform: rotate(0deg);
+    transition: all .5s ease-in-out;
+}
+.sidebar .arrow img{
+    transform: rotate(180deg);
+    transition: all .5s ease-in-out;
+}
+
+
+
+
+	</style>
+</head>
+<body>
+
+<div class="sidebar sidebar-collapsed">
+    <ul class="mk-toggle"> 
+    	
+<li class="active"><a href="#"><img src="img/1.png" width="25px"></a></li>
+
+<li><a href="#"><img src="img/1.png" width="25px"></a></li>
+<li><a href="#"><img src="img/1.png" width="25px"></a></li>
+<li><a href="#"><img src="img/1.png" width="25px"></a></li>
+<li><a href="#"><img src="img/1.png" width="25px"></a></li>
+<li class="arrow"><img src="img/2.png" width="25px"></li>
+
+
+    </ul>
+    <div class="mk-content">
+
+    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$('.mk-toggle').on('click', function() {
+    $('.sidebar').toggleClass("sidebar-collapsed");
+});
+</script>
+</body>
+</html>
